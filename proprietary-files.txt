@@ -49,6 +49,7 @@ etc/firmware/wlan/qcom_fw.bin
 ## AUDIO
 lib/libaudioeq.so
 
+
 ## CAMERA
 lib/liboemcamera.so
 lib/libcamera.so
@@ -61,7 +62,7 @@ etc/firmware/BCM4330B1_002.001.003.0337.0338.hcd
 ## HAL
 bin/ami304d
 lib/hw/sensors.p690.so
-
+lib/hw/lights.msm7x27.so
 
 ## EGL
 lib/egl/libEGL_adreno200.so

@@ -25,8 +25,7 @@ PRODUCT_COPY_FILES += \
 # P690 Audio
 PRODUCT_PACKAGES += \
     audio_policy.p690 \
-    audio.primary.p690 \
-    camera.msm7x27 \
+    audio.primary.p690
 
 # Full-featured build of the Open-Source
 $(call inherit-product, build/target/product/full.mk)
