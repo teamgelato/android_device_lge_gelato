@@ -1,18 +1,12 @@
-# Boot Animation
-TARGET_SCREEN_HEIGHT := 480
-TARGET_SCREEN_WIDTH := 320
-
 # Include GSM stuff
 $(call inherit-product, vendor/cm/config/gsm.mk)
 
 # Inherit device configuration for p690.
 $(call inherit-product, device/lge/p690/p690.mk)
 
-# Inherit some common cyanogenmod stuff.
-$(call inherit-product, vendor/cm/config/common_mini_phone.mk)
-
-# Include FM-Radio stuff
-#$(call inherit-product, vendor/cyanogen/products/bcm_fm_radio.mk)
+TARGET_SCREEN_HEIGHT := 480
+TARGET_SCREEN_WIDTH := 320
+$(call inherit-product, vendor/cm/config/mini.mk)
 
 PRODUCT_NAME := cm_p690
 PRODUCT_BRAND := lge

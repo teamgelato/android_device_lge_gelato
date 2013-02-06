@@ -6,20 +6,9 @@ TARGET_KERNEL_CONFIG := cyanogenmod_p690_defconfig
 TARGET_BOOTLOADER_BOARD_NAME := p690
 TARGET_OTA_ASSERT_DEVICE := gelato,p690
 
+SMALLER_FONT_FOOTPRINT := true
+
 BOARD_KERNEL_CMDLINE := mem=471M console=ttyMSM2,115200n8 androidboot.hardware=p690
-
-# Wi-Fi & Wi-Fi HotSpot
-WPA_SUPPLICANT_VERSION          := VER_0_6_X
-BOARD_WLAN_DEVICE               := bcm4330
-BOARD_WEXT_NO_COMBO_SCAN        := true
-BOARD_WPA_SUPPLICANT_DRIVER     := WEXT
-WIFI_DRIVER_HAS_LGE_SOFTAP      := true
-WIFI_DRIVER_MODULE_PATH         := "/system/lib/modules/wireless.ko"
-WIFI_DRIVER_MODULE_ARG          := "firmware_path=/etc/wl/rtecdc.bin nvram_path=/etc/wl/nvram.txt config_path=/data/misc/wifi/config"
-WIFI_DRIVER_MODULE_NAME         := "wireless"
-WIFI_DRIVER_FW_PATH_STA         := "/system/etc/wl/rtecdc.bin"
-WIFI_DRIVER_FW_PATH_AP          := "/system/etc/wl/rtecdc-apsta.bin"
-
 
 # Fix this up by examining /proc/mtd on a running device
 BOARD_KERNEL_BASE := 0x12800000
@@ -30,10 +19,6 @@ BOARD_SYSTEMIMAGE_PARTITION_SIZE := 0x0e600000
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 0x09f80000
 BOARD_FLASH_BLOCK_SIZE := 131072
 
-TARGET_PROVIDES_LIBAUDIO := true
-# Enable ICS-backwards compatibility    
-COMMON_GLOBAL_CFLAGS += -DQCOM_ICS_COMPAT
-# Disable PIE since it breaks ICS camera blobs
-TARGET_DISABLE_ARM_PIE := true
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/lge/p690/bluetooth
 
 USE_CAMERA_STUB := false
