@@ -56,6 +56,11 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PACKAGES += \
     bdaddr_read \
+    librs_jni \
+    libmm-omxcore \
+    libOmxCore \
+    libaudiopolicy \
+    libaudio \
     libcamera
 
 DISABLE_DEXPREOPT := false
