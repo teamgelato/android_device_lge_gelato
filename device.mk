@@ -29,7 +29,8 @@ DEVICE_PACKAGE_OVERLAYS := device/lge/gelato/overlay
 PRODUCT_COPY_FILES += \
     device/common/gps/gps.conf_US_SUPL:system/etc/gps.conf \
     device/lge/gelato/media_profiles.xml:system/etc/media_profiles.xml \
-    device/lge/gelato/tun.ko:system/lib/modules/tun.ko \
+    device/lge/gelato/librasdioif.ko:system/lib/modules/librasdioif.ko \
+    device/lge/gelato/scsi_wait_scan.ko:system/lib/modules/scsi_wait_scan.ko \
     device/lge/gelato/wireless.ko:system/lib/modules/wireless.ko
 
 # Device permissions
@@ -47,21 +48,25 @@ PRODUCT_COPY_FILES += \
 
 # Board-specific init
 PRODUCT_COPY_FILES += \
-    device/lge/gelato/init.rc:root/init.rc \
-    device/lge/gelato/init.gelato.rc:root/init.gelato.rc \
-    device/lge/gelato/ueventd.gelato.rc:root/ueventd.gelato.rc \
-    device/lge/gelato/init.local.rc:/system/etc/init.local.rc \
-    device/lge/gelato/init.qcom.rc:root/init.qcom.rc \
-    device/lge/gelato/init.qcom.sh:root/init.qcom.sh
+    device/lge/gelato/ramdisk/init:root/init \
+    device/lge/gelato/ramdisk/init.rc:root/init.rc \
+    device/lge/gelato/ramdisk/fota.rc:root/fota.rc \
+    device/lge/gelato/ramdisk/init.rc:root/init.goldfish.rc \
+    device/lge/gelato/ramdisk/init.gelato.rc:root/init.gelato.rc \
+    device/lge/gelato/ramdisk/ueventd.rc:root/ueventd.rc \
+    device/lge/gelato/ramdisk/init.qcom.rc:root/init.qcom.rc \
+    device/lge/gelato/ramdisk/default.prop:root/default.prop \
+    device/lge/gelato/ramdisk/init.qcom.sh:root/init.qcom.sh \
+    device/lge/gelato/ramdisk/sbin/adbd:root/sbin/adbd \
+    device/lge/gelato/ramdisk/sbin/logcat:root/sbin/logcat \
+    device/lge/gelato/ramdisk/sbin/ueventd:root/sbin/ueventd
 
 PRODUCT_PACKAGES += \
     bdaddr_read \
     librs_jni \
     libmm-omxcore \
     libOmxCore \
-    libaudiopolicy \
-    libaudio \
-    libcamera
+    libcamera 
 
 DISABLE_DEXPREOPT := false
   
@@ -71,36 +76,37 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel
 
 # Telephony Properties for CDMA VM:
-#PRODUCT_PROPERTY_OVERRIDES += \
-#   ro.ril.def.preferred.network=4 \
-#   ro.telephony.default_network=4 \
-#   ro.cdma.home.operator.alpha=Virgin Mobile \
-#   ro.cdma.home.operator.subscriber=31000 \
-#   ro.cdma.home.operator.numeric=311490 \
-#   gsm.sim.operator.alpha = Virgin Mobile \
-#   gsm.sim.operator.numeric = 311490 \
-#   gsm.sim.operator.iso-country = us \
-#   gsm.operator.alpha = Virgin Mobile \
-#   gsm.operator.numeric = 311490 \
-#   gsm.operator.iso-country = us \
-#   gsm.sim.state=READY
+PRODUCT_PROPERTY_OVERRIDES += \
+   ro.ril.def.preferred.network=4 \
+   ro.telephony.default_network=4 \
+   ro.cdma.home.operator.alpha=Virgin Mobile \
+   ro.cdma.home.operator.subscriber=31000 \
+   ro.cdma.home.operator.numeric=311490 \
+   ro.use_data_netmgrd=false \
+   gsm.sim.operator.alpha = Virgin Mobile \
+   gsm.sim.operator.numeric = 311490 \
+   gsm.sim.operator.iso-country = us \
+   gsm.operator.alpha = Virgin Mobile \
+   gsm.operator.numeric = 311490 \
+   gsm.operator.iso-country = us \
+   gsm.sim.state=READY
 
 # Telephony for CDMA Virgin Mobile:
 
-CDMA_GOOGLE_BASE := android-sprint-us
-CDMA_CARRIER_ALPHA := Virgin_Mobile
-CDMA_CARRIER_NUMERIC := 311490
-BLUETOOTH_FIRMWARE := BCM4330B1_002.001.003.0221.0235.hcd
-SUB_MODEL := VM701
+#CDMA_GOOGLE_BASE := android-sprint-us
+#CDMA_CARRIER_ALPHA := Virgin_Mobile
+#CDMA_CARRIER_NUMERIC := 311490
+#BLUETOOTH_FIRMWARE := BCM4330B1_002.001.003.0221.0235.hcd
+#SUB_MODEL := VM701
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.com.google.clientidbase=$(CDMA_GOOGLE_BASE) \
-    ro.cdma.home.operator.alpha=$(CDMA_CARRIER_ALPHA) \
-    ro.cdma.home.operator.numeric=$(CDMA_CARRIER_NUMERIC) \
-    gsm.sim.operator.alpha=$(CDMA_CARRIER_ALPHA) \
-    gsm.sim.operator.numeric=$(CDMA_CARRIER_NUMERIC) \
-    gsm.operator.alpha=$(CDMA_CARRIER_ALPHA) \
-    gsm.operator.numeric=$(CDMA_CARRIER_NUMERIC)
+#PRODUCT_PROPERTY_OVERRIDES += \
+#    ro.com.google.clientidbase=$(CDMA_GOOGLE_BASE) \
+#    ro.cdma.home.operator.alpha=$(CDMA_CARRIER_ALPHA) \
+#    ro.cdma.home.operator.numeric=$(CDMA_CARRIER_NUMERIC) \
+#    gsm.sim.operator.alpha=$(CDMA_CARRIER_ALPHA) \
+#    gsm.sim.operator.numeric=$(CDMA_CARRIER_NUMERIC) \
+#    gsm.operator.alpha=$(CDMA_CARRIER_ALPHA) \
+#    gsm.operator.numeric=$(CDMA_CARRIER_NUMERIC)
 
 # These are the hardware-specific settings that are stored in system properties.
 # Note that the only such settings should be the ones that are too low-level to

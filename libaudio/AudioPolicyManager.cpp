@@ -213,11 +213,11 @@ status_t AudioPolicyManager::setDeviceConnectionState(AudioSystem::audio_devices
                                                   AudioSystem::device_connection_state state,
                                                   const char *device_address)
 {
-
+#ifdef HAVE_FM_RADIO
     if(!strcmp(device_address,"reset_fm")) {
         resetFm(device);
     }
-
+#endif
     LOGV("setDeviceConnectionState() device: %x, state %d, address %s", device, state, device_address);
 
     // connect/disconnect only 1 device at a time

@@ -424,6 +424,7 @@ status_t AudioHardware::setParameters(const String8 &keyValuePairs)
     }
 
     int devices;
+#ifdef HAVE_FM_RADIO
     if (param.getInt(String8(AudioParameter::keyFmOn), devices) == NO_ERROR) {
        LOGE("devices = %d", devices);
        setFmOnOff(true);
@@ -431,7 +432,7 @@ status_t AudioHardware::setParameters(const String8 &keyValuePairs)
        LOGE("devices = %d", devices);
        setFmOnOff(false);
     }
-
+#endif
     return NO_ERROR;
 }
 
@@ -1346,7 +1347,7 @@ status_t AudioHardware::doRouting(AudioStreamInMSM72xx *input)
                 new_snd_device = SND_DEVICE_SPEAKER;
             }
             new_post_proc_feature_mask = (ADRC_ENABLE | EQ_ENABLE | RX_IIR_ENABLE | MBADRC_ENABLE);
-        } else  if (outputDevices & AudioSystem::DEVICE_OUT_FM) {
+        }/* else  if (outputDevices & AudioSystem::DEVICE_OUT_FM) {
             LOGI("Routing audio to Headset\n");
             new_snd_device = SND_DEVICE_FM_HEADSET;
             new_post_proc_feature_mask = (ADRC_ENABLE | EQ_ENABLE | RX_IIR_ENABLE | MBADRC_ENABLE);
@@ -1354,7 +1355,7 @@ status_t AudioHardware::doRouting(AudioStreamInMSM72xx *input)
             LOGI("Routing audio to FM Speakerphone\n");
             new_snd_device = SND_DEVICE_FM_SPEAKER;
             new_post_proc_feature_mask = (ADRC_ENABLE | EQ_ENABLE | RX_IIR_ENABLE | MBADRC_ENABLE);
-        } else if (outputDevices & AudioSystem::DEVICE_OUT_SPEAKER_IN_CALL) {
+        }*/ else if (outputDevices & AudioSystem::DEVICE_OUT_SPEAKER_IN_CALL) {
             LOGI("Routing audio to In-call Speaker\n");
             new_snd_device = SND_DEVICE_SPEAKER_IN_CALL;
             new_post_proc_feature_mask = (ADRC_ENABLE | EQ_ENABLE | RX_IIR_ENABLE | MBADRC_ENABLE);
