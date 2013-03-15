@@ -6,8 +6,6 @@ persist.mvpdm.ProxyServerAddr=68.28.31.1
 persist.mvpdm.ProxyServerIp=80
 
 ro.lge.proximity.delay=100
-ro.ril.def.preferred.network=4
-ro.telephony.default_network=4
 
 rild.libpath=/system/lib/libril-qc-1.so
 rild.libargs=-d /dev/smd0
@@ -100,3 +98,4 @@ gsm.operator.iso-country=us
 qemu.sf.lcd_density=160
 ro.sf.hwrotation=0
 ro.sf.lcd_density=160
+persist.sys.usb.config=mass_storage,adb
