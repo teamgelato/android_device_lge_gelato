@@ -77,16 +77,19 @@ PRODUCT_COPY_FILES += \
 
 # Telephony Properties for CDMA VM:
 PRODUCT_PROPERTY_OVERRIDES += \
+   ro.telephony.ril_class=LGEQualcommRIL \
+   ro.subscription.types=NV,RUIM \
+   ro.telephony.ril.v3=signalstrength,skipbrokendatacall,facilitylock,datacall,icccardstatus,1 \
    ro.ril.def.preferred.network=4 \
    ro.telephony.default_network=4 \
-   ro.cdma.home.operator.alpha=Virgin Mobile \
+   ro.cdma.home.operator.alpha=Virgin_Mobile \
    ro.cdma.home.operator.subscriber=31000 \
    ro.cdma.home.operator.numeric=311490 \
    ro.use_data_netmgrd=false \
-   gsm.sim.operator.alpha = Virgin Mobile \
+   gsm.sim.operator.alpha = Virgin_Mobile \
    gsm.sim.operator.numeric = 311490 \
    gsm.sim.operator.iso-country = us \
-   gsm.operator.alpha = Virgin Mobile \
+   gsm.operator.alpha = Virgin_Mobile \
    gsm.operator.numeric = 311490 \
    gsm.operator.iso-country = us \
    gsm.sim.state=READY
