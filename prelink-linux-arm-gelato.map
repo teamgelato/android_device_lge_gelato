@@ -176,12 +176,13 @@ libstagefright.so                  0xA2F00000 # [~4M]
 # libraries for specific hardware
 libgsl.so               0xA2E00000 # [~1M]
 libhtc_acoustic.so      0xA2D00000 # [<64K]
-libhtc_ril.so           0xA2C00000 # [~1M]
+libril-qc-1.so           0xA2C00000 # [~1M]
 liblvmxipc.so           0xA2B00000 # [~1M] for vendor/nxp
 libreference-cdma-sms.so 0xA2A00000 # [<64K] for hardware/ril
-libloc_api.so           0xA1F00000 # [~2M]
-libloc.so               0xA1D00000 # [~2M]
+libloc_ext.so           0xA1F00000 # [~2M]
+libloc_api-rpc-qc.so    0xA1D00000 # [~2M]
 libloc-rpc.so           0xA1B00000 # [~2M]
+liboncrpc.so            0xA1A00000 # [~1M]
 
 # libraries for specific apps or temporary libraries
 libcam_ipl.so           0x9F000000 # [???]

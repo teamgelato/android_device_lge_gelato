@@ -23,6 +23,10 @@
 /dev/kgsl-2d0             0666   root       root
 /dev/kgsl-2d1             0666   root       root
 
+# these should not be world writable
+# LGE_CHANGE_CIQ : [CIQ] Change AID_ROOT to AID_SYSTEM for using ONCRPC of CIQ
+# /dev/oncrpc/*             0660   root       qcom_oncrpc
+
 /dev/diag_arm9            0660   radio      radio
 /dev/android_adb          0660   adb        adb
 /dev/android_adb_enable   0660   adb        adb
@@ -42,7 +46,7 @@
 /dev/pmem_adsp*           0660   system     audio
 /dev/pmem_smipool*        0660   system     camera
 /dev/pmem_camera*         0660   system     camera
-/dev/oncrpc/*             0660   system     qcom_oncrpc
+/dev/oncrpc/*             0666   system     qcom_oncrpc
 /dev/adsp/*               0660   system     audio
 /dev/snd/*                0660   system     audio
 /dev/mt9t013              0660   system     system
@@ -135,7 +139,3 @@
 /dev/msm_a2dp_in          0640  system       audio
 /dev/msm_amrnb_in         0640  system       audio
 /sys/devices/virtual/usb_composite/*   enable      0664  root   system
-
-/dev/oncrpc/*             0660   radio       radio
-/dev/ttyHSUSB0            0660   root        system
-/dev/hw3d                 0666   root        root

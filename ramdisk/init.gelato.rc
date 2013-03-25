@@ -198,12 +198,12 @@ service bluetoothd /system/bin/bluetoothd -n
     group bluetooth net_bt_admin misc			
     disabled
 
-#service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
-#    user bluetooth
-#    group qcom_oncrpc bluetooth net_bt_admin
-#    disabled
-#    oneshot
-#--- BRCM
+##HACK TO FIX BLUETOOTH
+service hciattach /system/bin/brcm_patchram_plus -d --baudrate 3000000 --patchram /system/bin/BCM4330B1_002.001.003.0221.0235.hcd --enable_hci /dev/ttyHS0
+    user bluetooth
+    group qcom_oncrpc bluetooth net_bt_admin
+    disabled
+    oneshot
 
 service port-bridge /system/bin/port-bridge /dev/smd0 /dev/ttyGS0
 #2011.05.17 sunmo.kim@lge.com : Qualcomm root process patch for "port_bridge" [START]

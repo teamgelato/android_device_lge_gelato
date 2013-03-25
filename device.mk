@@ -47,26 +47,23 @@ PRODUCT_COPY_FILES += \
     packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:/system/etc/permissions/android.software.live_wallpaper.xml
 
 # Board-specific init
-PRODUCT_COPY_FILES += \
-    device/lge/gelato/ramdisk/init:root/init \
     device/lge/gelato/ramdisk/init.rc:root/init.rc \
-    device/lge/gelato/ramdisk/fota.rc:root/fota.rc \
-    device/lge/gelato/ramdisk/init.rc:root/init.goldfish.rc \
     device/lge/gelato/ramdisk/init.gelato.rc:root/init.gelato.rc \
-    device/lge/gelato/ramdisk/ueventd.rc:root/ueventd.rc \
-    device/lge/gelato/ramdisk/init.qcom.rc:root/init.qcom.rc \
-    device/lge/gelato/ramdisk/default.prop:root/default.prop \
-    device/lge/gelato/ramdisk/init.qcom.sh:root/init.qcom.sh \
-    device/lge/gelato/ramdisk/sbin/adbd:root/sbin/adbd \
-    device/lge/gelato/ramdisk/sbin/logcat:root/sbin/logcat \
-    device/lge/gelato/ramdisk/sbin/ueventd:root/sbin/ueventd
+    device/lge/gelato/ramdisk/ueventd.rc:root/ueventd.rc
+
+# Keyboard
+PRODUCT_COPY_FILES += \
+    device/lge/gelato/7k_handset.kl:system/usr/keylayout/7k_handset.kl \
+    device/lge/gelato/kbd_pp2106.kl:system/usr/keylayout/kbd_pp2106.kl
+
+PRODUCT_PACKAGES := \
+    kbd_pp2106.kcm
 
 PRODUCT_PACKAGES += \
     bdaddr_read \
     librs_jni \
     libmm-omxcore \
-    libOmxCore \
-    libcamera 
+    libOmxCore
 
 DISABLE_DEXPREOPT := false
   
@@ -77,45 +74,25 @@ PRODUCT_COPY_FILES += \
 
 # Telephony Properties for CDMA VM:
 PRODUCT_PROPERTY_OVERRIDES += \
-   ro.telephony.ril_class=LGEQualcommRIL \
-   ro.subscription.types=NV,RUIM \
-   ro.telephony.ril.v3=signalstrength,skipbrokendatacall,facilitylock,datacall,icccardstatus,1 \
    ro.ril.def.preferred.network=4 \
    ro.telephony.default_network=4 \
-   ro.cdma.home.operator.alpha=Virgin_Mobile \
+   ro.subscription.types=NV \
+   ro.telephony.ril.v3=signalstrength,skipbrokendatacall,facilitylock,datacall,icccardstatus,1 \
+   ro.cdma.home.operator.alpha=Virgin Mobile \
    ro.cdma.home.operator.subscriber=31000 \
    ro.cdma.home.operator.numeric=311490 \
-   ro.use_data_netmgrd=false \
-   gsm.sim.operator.alpha = Virgin_Mobile \
-   gsm.sim.operator.numeric = 311490 \
-   gsm.sim.operator.iso-country = us \
-   gsm.operator.alpha = Virgin_Mobile \
-   gsm.operator.numeric = 311490 \
-   gsm.operator.iso-country = us \
-   gsm.sim.state=READY
-
-# Telephony for CDMA Virgin Mobile:
-
-#CDMA_GOOGLE_BASE := android-sprint-us
-#CDMA_CARRIER_ALPHA := Virgin_Mobile
-#CDMA_CARRIER_NUMERIC := 311490
-#BLUETOOTH_FIRMWARE := BCM4330B1_002.001.003.0221.0235.hcd
-#SUB_MODEL := VM701
-
-#PRODUCT_PROPERTY_OVERRIDES += \
-#    ro.com.google.clientidbase=$(CDMA_GOOGLE_BASE) \
-#    ro.cdma.home.operator.alpha=$(CDMA_CARRIER_ALPHA) \
-#    ro.cdma.home.operator.numeric=$(CDMA_CARRIER_NUMERIC) \
-#    gsm.sim.operator.alpha=$(CDMA_CARRIER_ALPHA) \
-#    gsm.sim.operator.numeric=$(CDMA_CARRIER_NUMERIC) \
-#    gsm.operator.alpha=$(CDMA_CARRIER_ALPHA) \
-#    gsm.operator.numeric=$(CDMA_CARRIER_NUMERIC)
+   ro.com.google.clientidbase=android-lge \
+   ro.com.google.clientidbase.yt=android-lge \
+   ro.com.google.clientidbase.am=android-virgin-us \
+   ro.com.google.clientidbase.gmm=android-lge \
+   ro.com.google.clientidbase.ms=android-virgin-us \
+   ro.use_data_netmgrd=false
 
 # These are the hardware-specific settings that are stored in system properties.
 # Note that the only such settings should be the ones that are too low-level to
 # be reachable from resources or other mechanisms.
 PRODUCT_PROPERTY_OVERRIDES += \
-       wifi.interface=eth0 \
+       wifi.interface=wlan0 \
        wifi.supplicant_scan_interval=120 \
        dalvik.vm.heapsize=32m \
        dalvik.vm.dexopt-data-only=1 \

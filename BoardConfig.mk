@@ -15,12 +15,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-BOARD_KERNEL_CMDLINE := mem=477M console=ttyMSM2,115200n8 androidboot.hardware=gelato
+BOARD_KERNEL_CMDLINE := mem=477M console=ttyMSM2,115200n8 androidboot.hardware=gelato androidboot.mode=normal androidboot.carrier=VirginMobile androidboot.bootloader=6170
 BOARD_KERNEL_BASE := 0x12200000
 BOARD_PAGE_SIZE := 0x00001024
 
 USE_CAMERA_STUB := false
-BOARD_USE_FROYO_LIBCAMERA := true
+#BOARD_USE_FROYO_LIBCAMERA := true
 
 TARGET_BOARD_PLATFORM := msm7k
 TARGET_ARCH_VARIANT := armv6-vfp
@@ -82,4 +82,5 @@ TARGET_PROVIDES_LIBAUDIO := true
 #BOARD_HAVE_OMAP_ENHANCEMENT := true
 TARGET_SF_NEEDS_REAL_DIMENSIONS := true
 
-
+# Prelinker
+PRODUCT_SPECIFIC_DEFINES += TARGET_PRELINKER_MAP=\$(TOP)/device/lge/gelato/prelink-linux-arm-gelato.map

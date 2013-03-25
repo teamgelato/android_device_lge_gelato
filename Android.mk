@@ -19,6 +19,10 @@
 
 LOCAL_PATH := $(call my-dir)
 
+### NASTY DEVICE NAME - but this is what the system is looking for. Will have to find a more sophisticated way to fix this
 include $(CLEAR_VARS)
+LOCAL_SRC_FILES := kbd_pp2106.kcm
+LOCAL_MODULE_TAGS := optional
+include $(BUILD_KEY_CHAR_MAP)
 
 include $(call all-makefiles-under,$(LOCAL_PATH))
