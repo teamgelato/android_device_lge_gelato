@@ -47,6 +47,7 @@ PRODUCT_COPY_FILES += \
     packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:/system/etc/permissions/android.software.live_wallpaper.xml
 
 # Board-specific init
+PRODUCT_COPY_FILES += \
     device/lge/gelato/ramdisk/init.rc:root/init.rc \
     device/lge/gelato/ramdisk/init.gelato.rc:root/init.gelato.rc \
     device/lge/gelato/ramdisk/ueventd.rc:root/ueventd.rc
