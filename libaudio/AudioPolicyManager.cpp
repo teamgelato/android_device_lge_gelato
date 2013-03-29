@@ -45,8 +45,10 @@ extern "C" void destroyAudioPolicyManager(AudioPolicyInterface *interface)
 AudioPolicyManager::AudioPolicyManager(AudioPolicyClientInterface *clientInterface)
                 : AudioPolicyManagerBase(clientInterface)
 {
+/*
     mAvailableOutputDevices |= AudioSystem::DEVICE_OUT_SPEAKER_IN_CALL;
     mAvailableOutputDevices |= AudioSystem::DEVICE_OUT_SPEAKER_RING;
+*/
 }
 
 uint32_t AudioPolicyManager::getDeviceForStrategy(routing_strategy strategy, bool fromCache)
@@ -126,8 +128,10 @@ uint32_t AudioPolicyManager::getDeviceForStrategy(routing_strategy strategy, boo
                 if (device) break;
             }
 #endif
+/*
             device = availableOutputDevices & AudioSystem::DEVICE_OUT_SPEAKER_IN_CALL;
             if (device) break;
+*/
 
             device = availableOutputDevices & AudioSystem::DEVICE_OUT_SPEAKER;
             if (device == 0) {
@@ -146,12 +150,14 @@ uint32_t AudioPolicyManager::getDeviceForStrategy(routing_strategy strategy, boo
             device = getDeviceForStrategy(STRATEGY_PHONE, false);
             break;
         }
+/*
         if (strategy == STRATEGY_SONIFICATION) {
             device = mAvailableOutputDevices & AudioSystem::DEVICE_OUT_SPEAKER_RING;
             if (device == 0) {
                 LOGE("getDeviceForStrategy() speaker device not found");
             }
         }
+*/
         // The second device used for sonification is the same as the device used by media strategy
         // FALL THROUGH
 
