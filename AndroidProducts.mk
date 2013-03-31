@@ -1,2 +1,2 @@
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/p690.mk
+    $(LOCAL_DIR)/gelato.mk

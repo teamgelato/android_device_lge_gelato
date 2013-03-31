@@ -9,8 +9,8 @@ PRODUCT_COPY_FILES += \
 
 # p690 init
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/init.p690.rc:root/init.p690.rc \
-    $(LOCAL_PATH)/ueventd.p690.rc:root/ueventd.p690.rc
+    $(LOCAL_PATH)/init.gelato.rc:root/init.gelato.rc \
+    $(LOCAL_PATH)/ueventd.gelato.rc:root/ueventd.gelato.rc
 
 ## Camera
 PRODUCT_PACKAGES += \
@@ -28,13 +28,13 @@ PRODUCT_COPY_FILES += \
 
 # Inherit products
 $(call inherit-product, device/lge/msm7x27-common/device.mk)
-$(call inherit-product, vendor/lge/p690/p690-vendor.mk)
+$(call inherit-product, vendor/lge/gelato/gelato-vendor.mk)
 $(call inherit-product, vendor/lge/msm7x27-common/msm7x27-common-vendor-blobs.mk)
 
 # Overrides
-PRODUCT_NAME := p690
-PRODUCT_DEVICE := p690
-PRODUCT_MODEL := LG-P690
+PRODUCT_NAME := gelato
+PRODUCT_DEVICE := gelato
+PRODUCT_MODEL := VM701
 PRODUCT_MANUFACTURER := LGE
 
 PRODUCT_AAPT_CONFIG := normal mdpi
@@ -42,4 +42,4 @@ PRODUCT_AAPT_PREF_CONFIG := mdpi
 $(call inherit-product, device/mdpi-common/mdpi.mk)
 
 # P500 overlays (Most specific last)
-DEVICE_PACKAGE_OVERLAYS += device/lge/p690/overlay
+DEVICE_PACKAGE_OVERLAYS += device/lge/gelato/overlay

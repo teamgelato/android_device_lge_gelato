@@ -15,6 +15,6 @@
 
 LOCAL_PATH := $(call my-dir)
 
-ifeq ($(TARGET_DEVICE),p690)
+ifeq ($(TARGET_DEVICE),gelato)
   include $(call all-makefiles-under,$(LOCAL_PATH))
 endif
