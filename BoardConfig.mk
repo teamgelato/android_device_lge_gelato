@@ -84,3 +84,6 @@ TARGET_SF_NEEDS_REAL_DIMENSIONS := true
 
 # Prelinker
 PRODUCT_SPECIFIC_DEFINES += TARGET_PRELINKER_MAP=\$(TOP)/device/lge/gelato/prelink-linux-arm-gelato.map
+
+#twrp
+DEVICE_RESOLUTION := 320x480
