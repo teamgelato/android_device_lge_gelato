@@ -50,6 +50,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/lge/gelato/ramdisk/init.rc:root/init.rc \
     device/lge/gelato/ramdisk/init.gelato.rc:root/init.gelato.rc \
+    device/lge/gelato/ramdisk/initlogo.rle:root/initlogo.rle \
     device/lge/gelato/ramdisk/ueventd.rc:root/ueventd.rc
 
 # Keyboard
