@@ -21,6 +21,6 @@
 # function: add_lunch_combo generic-eng
 
 
-# Note userdebug doesn't quite seem to work, yet.
-add_lunch_combo cyanogen_thunderc_VM670-eng
-add_lunch_combo cyanogen_thunderc_VM670-userdebug
+# Note userdebug isn't tested.
+add_lunch_combo cyanogen_gelato_VM701-eng
+add_lunch_combo cyanogen_gelato_VM701-userdebug
