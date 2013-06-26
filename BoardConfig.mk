@@ -92,3 +92,5 @@ DEVICE_RESOLUTION := 320x480
 BOARD_CUSTOM_RECOVERY_POWER_PROFILE := ../../device/lge/gelato/recovery/custom_power.c
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/lge/gelato/recovery/recovery_ui_gelato.c
 BOARD_RECOVERY_RELEASE_TYPE := 2.1
+BOARD_HAS_QUICKFIXES := true
+BOARD_NEEDS_RECOVERY_FIX := true
