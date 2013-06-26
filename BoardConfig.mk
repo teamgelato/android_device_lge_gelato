@@ -91,4 +91,4 @@ BOARD_HAS_SMALL_SCREEN := true
 DEVICE_RESOLUTION := 320x480
 BOARD_CUSTOM_RECOVERY_POWER_PROFILE := ../../device/lge/gelato/recovery/custom_power.c
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/lge/gelato/recovery/recovery_ui_gelato.c
-BOARD_RECOVERY_RELEASE_TYPE := dev2
+BOARD_RECOVERY_RELEASE_TYPE := 2.1
