@@ -70,6 +70,8 @@ PRODUCT_PACKAGES += \
 DISABLE_DEXPREOPT := false
   
 # Kernel
+TARGET_KERNEL_SOURCE := kernel/lge/gelato
+TARGET_KERNEL_CONFIG := gelato-perf_defconfig
 LOCAL_KERNEL := device/lge/gelato/zImage
 PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel
