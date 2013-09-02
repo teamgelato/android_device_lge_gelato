@@ -18,6 +18,7 @@
 BOARD_KERNEL_CMDLINE := mem=477M console=ttyMSM2,115200n8 androidboot.hardware=gelato androidboot.mode=normal androidboot.carrier=VirginMobile androidboot.bootloader=6170
 BOARD_KERNEL_BASE := 0x12200000
 BOARD_PAGE_SIZE := 0x00001024
+TARGET_SPECIFIC_HEADER_PATH := device/lge/gelato/include
 
 USE_CAMERA_STUB := false
 #BOARD_USE_FROYO_LIBCAMERA := true
