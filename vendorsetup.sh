@@ -22,5 +22,5 @@
 
 
 # Note userdebug isn't tested.
-add_lunch_combo cyanogen_gelato_VM701-eng
-add_lunch_combo cyanogen_gelato_VM701-userdebug
+add_lunch_combo cm_gelato-eng
+add_lunch_combo cm_gelato-userdebug
