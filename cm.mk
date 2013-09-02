@@ -13,9 +13,6 @@ $(call inherit-product, device/lge/gelato/full_gelato.mk)
 # Inherit some common cyanogenmod stuff.
 $(call inherit-product, vendor/cm/config/common.mk)
 
-# Include FM-Radio stuff (does not work at this moment)
-$(call inherit-product, vendor/cm/config/bcm_fm_radio.mk)
-
 PRODUCT_BRAND := LGE
 PRODUCT_DEVICE := gelato
 PRODUCT_MODEL := LG-VM701
